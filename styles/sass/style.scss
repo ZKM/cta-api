@@ -49,6 +49,10 @@ ul {
 /* Brown Line */
 .Brown {
 	background: #654321;
+
+	h1 {
+		color: #fff;
+	}
 }
 
 /* Purple Line */
@@ -65,7 +69,9 @@ ul {
 .Yellow {
 	background: #FFFF00;
 }
-
+.twelve.Brown {
+	margin: 20px 0;
+}
 .panel {
 	display: block;
 	min-height: 70px;

@@ -54,6 +54,9 @@ ul li {
 .Brown {
   background: #654321;
 }
+.Brown h1 {
+  color: #fff;
+}
 
 /* Purple Line */
 .Purple {
@@ -68,6 +71,10 @@ ul li {
 /* Yellow Line */
 .Yellow {
   background: #FFFF00;
+}
+
+.twelve.Brown {
+  margin: 20px 0;
 }
 
 .panel {
