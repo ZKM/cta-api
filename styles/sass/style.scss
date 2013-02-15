@@ -67,6 +67,8 @@ ul {
 }
 
 .panel {
+	display: block;
+	min-height: 70px;
 }
 .panel:hover {
 	background: #e6e6e6;

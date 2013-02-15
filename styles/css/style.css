@@ -70,6 +70,11 @@ ul li {
   background: #FFFF00;
 }
 
+.panel {
+  display: block;
+  min-height: 70px;
+}
+
 .panel:hover {
   background: #e6e6e6;
   border: solid 1px #f2f2f2;

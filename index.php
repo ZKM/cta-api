@@ -47,7 +47,7 @@
 					
 					$mapID = $train['sid'];
 
-					echo '<div class="three columns"><div class="panel"><a href="?display=brown&sid=' . $mapID . '">' . $train['station'] . '</div></div>';
+					echo '<div class="three columns"><a class="panel" href="?display=brown&sid=' . $mapID . '">' . $train['station'] . '</a></div>';
 
 					} // while train
 					//break;
