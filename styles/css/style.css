@@ -69,3 +69,8 @@ ul li {
 .Yellow {
   background: #FFFF00;
 }
+
+.panel:hover {
+  background: #e6e6e6;
+  border: solid 1px #f2f2f2;
+}

@@ -21,92 +21,40 @@
 <div class="row">
 		<div class="twelve columns">
 			<?php
-				//$cta = simplexml_load_file("http://cta.local:8888/sample-data.xml");
 
-			/* Station IDs
-			?sid=
-				Brown Line:
-					Kimball - 41290	
-					Kedzie - 41180
-					Francisco - 40870
-					Rockwell - 41010
-					Western - 41480
-					Damen - 40090
-					Montrose - 41500
-					Irving Park - 41460
-					Addison - 41440
-					Paulina - 41310
-					Southport - 40360
-					Belmont - 41320
-					Wellington - 41210
-					Diversy - 40530
-					Fullerton - 41220
-					Armitage - 40660
-					Sedgwick - 40800
-					Chicago - 40710
-					Merchandise Mart - 40460
-					Washington/Wells - 40730
-					Quincy - 40040
-					LaSalle/Van Buren - 40160
-					Harold Washington Library-State/Van Buren - 40850
-					Adams/Wabash - 40680
-					Madison/Wabash - 40640
-					Randolph/Wabash - 40200
-					State/Lake - 40260
-					Clark/Lake - 40380
+				if (empty($_GET["display"])) $action = 'DISPLAY';
+				else $action = strtoupper($_GET['display']);
 
-			*/
+				switch($action) {
+					default:
+					case 'BROWN': // display stations
 
-				$mapID = $_GET["sid"];
+					// Query Database
+					include('con.php');
+					$query = "SELECT  `sid` ,  `station` FROM  `brown`";
+					$paths = @mysql_query($query); 
 
-				include('secret.php');
-
-				$cta = simplexml_load_file("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=$apiKey&mapid=$mapID");
-				
-
-
-				$staNm = $cta->eta->staNm;
-
-				echo "<h1>$staNm</h1>\n<ul id='ctaTrancker'>\n";
-				foreach ($cta->eta as $cta_info){
-					$rt = $cta_info->rt;
-					$cta_station = $cta_info->destNm;
-					$arrival_time = $cta_info->arrT;
-					$stopDirection = $cta_info->stpDe;
-					$prdtime = $cta_info->prdt;
-				
-					switch ($rt) {
-						case 'G':
-							$rt = 'Green';
-							break;
-
-						case 'Org':
-							$rt = 'Orange';
-							break;
-
-						case 'Brn':
-							$rt = 'Brown';
-							break;
-						
-						case 'P':
-							$rt = 'Purple';
-							break;
-
-						case 'Y':
-							$rt = 'Yellow';
-							break;
-
-						default:
-							$rt = $rt;
-							break;
+					if (!$paths) {
+						echo "<p><strong>Query error:</strong><br /> $query</p>"; // query error
+						//break; // terminate case
 					}
 
-					echo "<li><div class='rt $rt'><h2>$rt > $cta_station</h2></div>\n<div class='arrT'><h3>arrival time:</h3> $arrival_time</div>\n<div class='prdt'><h3>prd time:</h3> $prdtime</div>\n<div class='stpDe'><h3>direction:</h3> $stopDirection</div>\n<hr /></li>\n";
-				}
+					echo '<div class="row"><div class="twelve columns"><h1>Brown Line</h1></div></div>';
+					//include('functions.php');
 
-				echo "\n</ul>";
-			?>
-		</div>
+					// loop through
+					while($train = mysql_fetch_array($paths, MYSQL_BOTH)) {
+					
+					$mapID = $train['sid'];
+
+					echo '<div class="three columns"><div class="panel"><a href="?display=brown&sid=' . $mapID . '">' . $train['station'] . '</div></div>';
+
+					} // while train
+					//break;
+					//$mapID = $_GET["sid"];
+				}
+					?>
 	</div>
+</div>
 </body>
 </html>
