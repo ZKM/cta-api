@@ -5,14 +5,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>CTA API</title>
-	<link href="../styles/css/app.css" media="screen, projector, print" rel="stylesheet" type="text/css" />
-	<link href='../styles/css/style.css' rel='stylesheet'>
-	<script src="../js/foundation/modernizr.foundation.js"></script>
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="../images/ico/apple-touch-icon-57-precomposed.png">
-	<link rel="shortcut icon" href="../images/ico/favicon.png">
+	<link href="./styles/css/app.css" media="screen, projector, print" rel="stylesheet" type="text/css" />
+	<link href='./styles/css/style.css' rel='stylesheet'>
+	<script src="./js/foundation/modernizr.foundation.js"></script>
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="./images/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="./images/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="./images/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="./images/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="./images/ico/favicon.png">
 	<!-- [if lt IE 8]>
 	<link rel="shortcut icon" href="../images/ico/favicon.ico">
 	<![endif]-->
@@ -50,7 +50,7 @@
 
 					} // while train
 
-					//break;
+					break;
 				} // END DISPLAY switch	
 			
 			
