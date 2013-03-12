@@ -39,75 +39,34 @@
 						break; // terminate case
 					}
 
-					echo '<div class="row"><div class="twelve columns Brown"><h1>Brown Line</h1></div></div>';
+					echo '<div class="row"><div class="twelve stations columns Brown"><h1>Brown Line</h1></div></div>';
 
 					// loop through
 					while($train = mysql_fetch_array($paths, MYSQL_BOTH)) {
 					
 					$mapID = $train['sid'];
 
-					echo '<div class="three columns"><a class="panel" href="?display=brown&sid=' . $mapID . '">' . $train['station'] . '</a></div>';
+					echo '<div class="three stations columns"><a class="panel" href="?display=brown&sid=' . $mapID . '">' . $train['station'] . '</a></div>';
 
 					} // while train
 
 					break;
-				} // END DISPLAY switch	
-			
-			
-//					if (empty($_GET["sid"]) $action2 = '';
-//					else $action2 = strtoupper($_GET['sid']);
-				switch ($_GET["sid"]) {
-					default:
-					case $_GET["sid"]: // display times
-						$mapID = $_GET["sid"];
-						$cta = simplexml_load_file("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=$apiKey&mapid=$mapID");
-						$staNm = $cta->eta->staNm;
+				} // END DISPLAY switch
 
-						$trainColor = "<h1>$staNm</h1>\n<ul id='ctaTracker'>\n";
+				// START SID switch
+				if (empty($_GET["sid"])) $action2 = '';
+				else $action2 = strtoupper($_GET['sid']);
 
-						foreach ($cta->eta as $cta_info){
-							$rt = $cta_info->rt;
-							$cta_station = $cta_info->destNm;
-							$arrival_time = $cta_info->arrT;
-							$stopDirection = $cta_info->stpDe;
-							$prdtime = $cta_info->prdt;
-						
-							switch ($rt) {
-								case 'G':
-									$rt = 'Green';
-									break;
-
-								case 'Org':
-									$rt = 'Orange';
-									break;
-
-								case 'Brn':
-									$rt = 'Brown';
-									break;
-								
-								case 'P':
-									$rt = 'Purple';
-									break;
-
-								case 'Y':
-									$rt = 'Yellow';
-									break;
-
-								default:
-									$rt = $rt;
-									break;
-							}
-
-							$trainRt = "<li><div class='rt $rt'><h2>$rt > $cta_station</h2></div>\n<div class='arrT'><h3>arrival time:</h3> $arrival_time</div>\n<div class='prdt'><h3>predicted time:</h3> $prdtime</div>\n<div class='stpDe'><h3>direction:</h3> $stopDirection</div>\n<hr /></li>\n";
-						}
-
-						$trainCl = "\n</ul>";
-
+				switch ($action2) {
+					case '':
+					// code...
 						break;
-									
+					default:
+						echo "<style>.stations{display:none;}</style>";
+						include('printCTA.php');
+					break;
+					
 				}
-		
-
 				?>
 	</div>
 </div>
