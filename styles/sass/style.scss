@@ -6,6 +6,12 @@ h2 {
 	font-size: 1.5em;
 	color: #fefefe;
 	display: block;
+	a {
+			color: #fefefe;
+	}
+	a:hover {
+		color: #ccc;
+	}
 }
 h3 {
 	font-size: 1.3em;
@@ -26,9 +32,19 @@ ul {
 		margin: 0 0 10px;
 	}
 }
+ul, li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
 /* Train colors */
 .rt {
 	padding: 5px 10px;
+}
+
+/* Blue Line */
+.Red {
+	background: #e40045;
 }
 
 /* Blue Line */

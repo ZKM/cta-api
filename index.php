@@ -49,6 +49,7 @@
 					echo '<div class="three stations columns"><a class="panel" href="?display=brown&sid=' . $mapID . '">' . $train['station'] . '</a></div>';
 
 					} // while train
+					echo "</div>";
 
 					break;
 				} // END DISPLAY switch
@@ -68,7 +69,7 @@
 					
 				}
 				?>
-	</div>
 </div>
+<?php include_once("analyticstracking.php") ?>
 </body>
 </html>
