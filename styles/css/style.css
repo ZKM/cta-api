@@ -1,10 +1,88 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.2em;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
   font-size: 2.5em;
+  line-height: 1.5em;
   display: block;
 }
 
 h2 {
   font-size: 1.5em;
+  line-height: 1.5em;
   color: #fefefe;
   display: block;
 }
@@ -17,11 +95,13 @@ h2 a:hover {
 
 h3 {
   font-size: 1.3em;
+  line-height: 1.3em;
   display: inline;
 }
 
 h4 {
   font-size: 1em;
+  line-height: 1.2em;
   display: inline;
 }
 
@@ -36,67 +116,67 @@ ul li {
   margin: 0 0 10px;
 }
 
-ul, li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 /* Train colors */
-.rt {
-  padding: 5px 10px;
-}
-
-/* Blue Line */
+/* Red Line */
 .Red {
-  background: #e40045;
+  background: #c60c30;
 }
 
 /* Blue Line */
 .Blue {
-  background: #00f;
-}
-
-/* Green Line */
-.Green {
-  background: #2a9c3b;
-}
-
-/* Orange Line */
-.Orange {
-  background: #ff7100;
+  background: #00a1de;
 }
 
 /* Brown Line */
 .Brown {
-  background: #654321;
+  background: #62361b;
 }
-.Brown h1 {
-  color: #fff;
+
+/* Green Line */
+.Green {
+  background: #009b3a;
+}
+
+/* Orange Line */
+.Orange {
+  background: #f9461c;
 }
 
 /* Purple Line */
 .Purple {
-  background: #800080;
+  background: #522398;
 }
 
 /* Pink Line */
 .Pink {
-  background: #ffc0cb;
+  background: #e27ea6;
 }
 
 /* Yellow Line */
 .Yellow {
-  background: #FFFF00;
+  background: #f9e300;
 }
 
-.twelve.Brown {
+.rt {
+  padding: 5px 10px;
+}
+
+.stations h1 {
+  color: #fff;
+}
+.stations h2 .panel, .stations h2 .panel:hover {
+  border: none;
+  background: none;
+}
+
+.stations {
   margin: 20px 0;
 }
 
 .panel {
   display: block;
   min-height: 70px;
+  padding: 17px 18px;
 }
 
 .panel:hover {

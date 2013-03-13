@@ -17,8 +17,6 @@ foreach ($cta->eta as $cta_info){
 	$prdtime = substr($prdtime, 9);
 	$prdtime = date('h:i:s A', strtotime($prdtime));
 
-//	$prdtime = date('h:i:s A');	
-
 	switch ($rt) {
 		case 'G':
 			$rt = 'Green';

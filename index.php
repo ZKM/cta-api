@@ -26,7 +26,32 @@
 				else $action = strtoupper($_GET['display']);
 
 				switch($action) {
-					default:
+					case 'RED': 
+
+					// Query Database
+					include('con.php');
+					$query = "SELECT  `sid` ,  `station` FROM  `red`";
+					$paths = @mysql_query($query); 
+
+					if (!$paths) {
+						echo "<p><strong>Query error:</strong><br /> $query</p>"; // query error
+						break; // terminate case
+					}
+
+					echo '<div class="row"><div class="twelve stations columns Red"><h1>Red Line</h1></div></div>';
+
+					// loop through
+					while($train = mysql_fetch_array($paths, MYSQL_BOTH)) {
+					
+					$mapID = $train['sid'];
+
+					echo '<div class="three stations columns"><a class="panel" href="?display=red&sid=' . $mapID . '">' . $train['station'] . '</a></div>';
+
+					} // while train
+					echo "</div>";
+
+					break;
+
 					case 'BROWN': // display stations
 
 					// Query Database
@@ -52,13 +77,21 @@
 					echo "</div>";
 
 					break;
+
+					default:
+					case '':
+						echo '<div class="twelve columns"><h1>Where you trying to go?</h1></div>';
+						echo '<div class="five columns stations Brown"><h2><a class="panel" href="?display=brown">Brown Line</a></h2></div>';
+						echo '<div class="five columns stations Red"><h2><a class="panel" href="?display=red">Red Line</a></h2></div>';
+					break;
+
 				} // END DISPLAY switch
 
 				// START SID switch
-				if (empty($_GET["sid"])) $action2 = '';
-				else $action2 = strtoupper($_GET['sid']);
+				if (empty($_GET["sid"])) $ctaTime = '';
+				else $ctaTime = strtoupper($_GET['sid']);
 
-				switch ($action2) {
+				switch ($ctaTime) {
 					case '':
 					// code...
 						break;
