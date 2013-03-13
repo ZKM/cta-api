@@ -3,8 +3,13 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
+	<title>CTA APP</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>CTA API</title>
+	<meta property="og:url" content="http://cta.zachschneider.com/">
+	<meta property="og:title" content="CTA APP">
+	<meta property="og:type" content="website"/>
+	<meta property="og:description" content="Personal project and playing with the CTA's API">
+	<meta property="og:image" content="http://cta.zachschneider.com/images/ico/apple-touch-icon-144-precomposed.png">
 	<link href="./styles/css/app.css" media="screen, projector, print" rel="stylesheet" type="text/css" />
 	<link href='./styles/css/style.css' rel='stylesheet'>
 	<script src="./js/foundation/modernizr.foundation.js"></script>
