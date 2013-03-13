@@ -26,57 +26,166 @@
 				else $action = strtoupper($_GET['display']);
 
 				switch($action) {
+					case 'BLUE': 
+					$lineColor = "Blue";
+					// Query Database
+					include('con.php');
+					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
+					$paths = @mysql_query($query); 
+
+					if (!$paths) {
+						echo "<p><strong>Query error:</strong><br /> $query</p>"; // query error
+						break; // terminate case
+					}
+					echo '<div class="row"><div class="twelve stations columns ' . $lineColor . '"><h1>' . $lineColor . ' Line</h1></div></div>';
+					// loop through
+					while($train = mysql_fetch_array($paths, MYSQL_BOTH)) {
+					$mapID = $train['sid'];
+					echo '<div class="four stations columns"><a class="panel" href="?display=' . $lineColor . '&sid=' . $mapID . '">' . $train['station'] . '</a></div>';
+					} // while train
+					echo "</div>";
+					break;
+
+					case 'BROWN': 
+					$lineColor = "Brown";
+					// Query Database
+					include('con.php');
+					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
+					$paths = @mysql_query($query); 
+
+					if (!$paths) {
+						echo "<p><strong>Query error:</strong><br /> $query</p>"; // query error
+						break; // terminate case
+					}
+					echo '<div class="row"><div class="twelve stations columns ' . $lineColor . '"><h1>' . $lineColor . ' Line</h1></div></div>';
+					// loop through
+					while($train = mysql_fetch_array($paths, MYSQL_BOTH)) {
+					$mapID = $train['sid'];
+					echo '<div class="four stations columns"><a class="panel" href="?display=' . $lineColor . '&sid=' . $mapID . '">' . $train['station'] . '</a></div>';
+					} // while train
+					echo "</div>";
+					break;
+
+					case 'GREEN': 
+					$lineColor = "Green";
+					// Query Database
+					include('con.php');
+					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
+					$paths = @mysql_query($query); 
+
+					if (!$paths) {
+						echo "<p><strong>Query error:</strong><br /> $query</p>"; // query error
+						break; // terminate case
+					}
+					echo '<div class="row"><div class="twelve stations columns ' . $lineColor . '"><h1>' . $lineColor . ' Line</h1></div></div>';
+					// loop through
+					while($train = mysql_fetch_array($paths, MYSQL_BOTH)) {
+					$mapID = $train['sid'];
+					echo '<div class="four stations columns"><a class="panel" href="?display=' . $lineColor . '&sid=' . $mapID . '">' . $train['station'] . '</a></div>';
+					} // while train
+					echo "</div>";
+					break;
+
+					case 'ORANGE': 
+					$lineColor = "Orange";
+					// Query Database
+					include('con.php');
+					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
+					$paths = @mysql_query($query); 
+
+					if (!$paths) {
+						echo "<p><strong>Query error:</strong><br /> $query</p>"; // query error
+						break; // terminate case
+					}
+					echo '<div class="row"><div class="twelve stations columns ' . $lineColor . '"><h1>' . $lineColor . ' Line</h1></div></div>';
+					// loop through
+					while($train = mysql_fetch_array($paths, MYSQL_BOTH)) {
+					$mapID = $train['sid'];
+					echo '<div class="four stations columns"><a class="panel" href="?display=' . $lineColor . '&sid=' . $mapID . '">' . $train['station'] . '</a></div>';
+					} // while train
+					echo "</div>";
+					break;
+
+					case 'PINK': 
+					$lineColor = "Pink";
+					// Query Database
+					include('con.php');
+					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
+					$paths = @mysql_query($query); 
+
+					if (!$paths) {
+						echo "<p><strong>Query error:</strong><br /> $query</p>"; // query error
+						break; // terminate case
+					}
+					echo '<div class="row"><div class="twelve stations columns ' . $lineColor . '"><h1>' . $lineColor . ' Line</h1></div></div>';
+					// loop through
+					while($train = mysql_fetch_array($paths, MYSQL_BOTH)) {
+					$mapID = $train['sid'];
+					echo '<div class="four stations columns"><a class="panel" href="?display=' . $lineColor . '&sid=' . $mapID . '">' . $train['station'] . '</a></div>';
+					} // while train
+					echo "</div>";
+					break;
+
+					case 'PURPLE': 
+					$lineColor = "Purple";
+					// Query Database
+					include('con.php');
+					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
+					$paths = @mysql_query($query); 
+
+					if (!$paths) {
+						echo "<p><strong>Query error:</strong><br /> $query</p>"; // query error
+						break; // terminate case
+					}
+					echo '<div class="row"><div class="twelve stations columns ' . $lineColor . '"><h1>' . $lineColor . ' Line</h1></div></div>';
+					// loop through
+					while($train = mysql_fetch_array($paths, MYSQL_BOTH)) {
+					$mapID = $train['sid'];
+					echo '<div class="four stations columns"><a class="panel" href="?display=' . $lineColor . '&sid=' . $mapID . '">' . $train['station'] . '</a></div>';
+					} // while train
+					echo "</div>";
+					break;
+
 					case 'RED': 
-
+					$lineColor = "Red";
 					// Query Database
 					include('con.php');
-					$query = "SELECT  `sid` ,  `station` FROM  `red`";
+					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
 					$paths = @mysql_query($query); 
 
 					if (!$paths) {
 						echo "<p><strong>Query error:</strong><br /> $query</p>"; // query error
 						break; // terminate case
 					}
-
-					echo '<div class="row"><div class="twelve stations columns Red"><h1>Red Line</h1></div></div>';
-
+					echo '<div class="row"><div class="twelve stations columns ' . $lineColor . '"><h1>' . $lineColor . ' Line</h1></div></div>';
 					// loop through
 					while($train = mysql_fetch_array($paths, MYSQL_BOTH)) {
-					
 					$mapID = $train['sid'];
-
-					echo '<div class="three stations columns"><a class="panel" href="?display=red&sid=' . $mapID . '">' . $train['station'] . '</a></div>';
-
+					echo '<div class="four stations columns"><a class="panel" href="?display=' . $lineColor . '&sid=' . $mapID . '">' . $train['station'] . '</a></div>';
 					} // while train
 					echo "</div>";
-
 					break;
 
-					case 'BROWN': // display stations
-
+					case 'YELLOW': 
+					$lineColor = "Yellow";
 					// Query Database
 					include('con.php');
-					$query = "SELECT  `sid` ,  `station` FROM  `brown`";
+					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
 					$paths = @mysql_query($query); 
 
 					if (!$paths) {
 						echo "<p><strong>Query error:</strong><br /> $query</p>"; // query error
 						break; // terminate case
 					}
-
-					echo '<div class="row"><div class="twelve stations columns Brown"><h1>Brown Line</h1></div></div>';
-
+					echo '<div class="row"><div class="twelve stations columns ' . $lineColor . '"><h1>' . $lineColor . ' Line</h1></div></div>';
 					// loop through
 					while($train = mysql_fetch_array($paths, MYSQL_BOTH)) {
-					
 					$mapID = $train['sid'];
-
-					echo '<div class="three stations columns"><a class="panel" href="?display=brown&sid=' . $mapID . '">' . $train['station'] . '</a></div>';
-
+					echo '<div class="four stations columns"><a class="panel" href="?display=' . $lineColor . '&sid=' . $mapID . '">' . $train['station'] . '</a></div>';
 					} // while train
 					echo "</div>";
-
 					break;
+
 
 					default:
 					case '':
