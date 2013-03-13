@@ -134,12 +134,15 @@ ul {
 
 
 .color {
-	margin: 0; 
-	
+	margin: 0;
 	h1 {
 		color: #fff;
 	}
 	h2 {
+		span {
+			display: block;
+			font-size: .7em;
+		}
 		.panel {
 			border:none;
 			background: none;			
@@ -148,7 +151,7 @@ ul {
 			color:#fff;
 			border:none;
 			background: none;
-		}
+		}		
 	}
 }
 .color:hover {
