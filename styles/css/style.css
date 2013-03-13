@@ -78,6 +78,7 @@ h1 {
   font-size: 2.5em;
   line-height: 1.5em;
   display: block;
+  margin-bottom: .5em;
 }
 
 h2 {
@@ -161,14 +162,6 @@ ul li {
   padding: 5px 10px;
 }
 
-.stations h1 {
-  color: #fff;
-}
-.stations h2 .panel, .stations h2 .panel:hover {
-  border: none;
-  background: none;
-}
-
 .stations {
   margin: 20px 0;
 }
@@ -182,4 +175,24 @@ ul li {
 .panel:hover {
   background: #e6e6e6;
   border: solid 1px #f2f2f2;
+}
+
+.color {
+  margin: 0;
+}
+.color h1 {
+  color: #fff;
+}
+.color h2 .panel {
+  border: none;
+  background: none;
+}
+.color h2 .panel:hover {
+  color: #fff;
+  border: none;
+  background: none;
+}
+
+.color:hover {
+  opacity: .7;
 }

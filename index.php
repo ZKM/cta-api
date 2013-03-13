@@ -81,9 +81,17 @@
 					default:
 					case '':
 						echo '<div class="twelve columns"><h1>Where you trying to go?</h1></div>';
-						echo '<div class="five columns stations Brown"><h2><a class="panel" href="?display=brown">Brown Line</a></h2></div>';
-						echo '<div class="five columns stations Red"><h2><a class="panel" href="?display=red">Red Line</a></h2></div>';
-					break;
+						echo '<div class="six columns color Blue"><h2><a class="panel" href="?display=blue">Blue Line</a></h2></div>';
+						echo '<div class="six columns color Brown"><h2><a class="panel" href="?display=brown">Brown Line</a></h2></div>';
+						echo '<div class="six columns color Green"><h2><a class="panel" href="?display=green">Green Line</a></h2></div>';
+						echo '<div class="six columns color Orange"><h2><a class="panel" href="?display=orange">Orange Line</a></h2></div>';
+						echo '<div class="six columns color Pink"><h2><a class="panel" href="?display=pink">Pink Line</a></h2></div>';
+						echo '<div class="six columns color Purple"><h2><a class="panel" href="?display=purple">Purple Line</a></h2></div>';
+						echo '<div class="six columns color Red"><h2><a class="panel" href="?display=red">Red Line</a></h2></div>';
+						echo '<div class="six columns color Yellow"><h2><a class="panel" href="?display=yellow">Yellow Line</a></h2></div>';
+
+
+						break;
 
 				} // END DISPLAY switch
 

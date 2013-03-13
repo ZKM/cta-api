@@ -32,6 +32,7 @@ h1 {
 	font-size: 2.5em;
 	line-height: 1.5em;
 	display: block;
+	margin-bottom: .5em;
 }
 h2 {
 	font-size: 1.5em;
@@ -113,17 +114,6 @@ ul {
 	padding: 5px 10px;
 }
 
-.stations { 
-	h1 {
-		color: #fff;
-	}
-	h2 {
-		.panel, .panel:hover {
-			border:none;
-			background: none;
-		}
-	}
-}
 
 .stations {
 	margin: 20px 0;
@@ -139,3 +129,24 @@ ul {
 }
 
 
+.color {
+	margin: 0; 
+	
+	h1 {
+		color: #fff;
+	}
+	h2 {
+		.panel {
+			border:none;
+			background: none;			
+		}
+		.panel:hover {
+			color:#fff;
+			border:none;
+			background: none;
+		}
+	}
+}
+.color:hover {
+	opacity: .7;
+}
