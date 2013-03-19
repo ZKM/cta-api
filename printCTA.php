@@ -1,4 +1,6 @@
 <?php 
+date_default_timezone_set('America/Chicago');
+
 $mapID = $_GET["sid"];
 $cta = simplexml_load_file("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=$apiKey&mapid=$mapID");
 $staNm = $cta->eta->staNm;
@@ -12,10 +14,16 @@ if ($staNm != null) {
 		$stopDirection = $cta_info->stpDe;
 		$prdtime = $cta_info->prdt;
 		
-		$arrival_time = substr($arrival_time, 9);
-		$arrival_time = date('h:i:s A', strtotime($arrival_time));
-		$prdtime = substr($prdtime, 9);
-		$prdtime = date('h:i:s A', strtotime($prdtime));
+//		$arrival_time = substr($arrival_time, 9);
+		$arrival_time = (int)((time()-strtotime($arrival_time))/60) . " min";
+//		$subAt = time() -  strtotime($prdtime);
+//		$arrival_time = floor($subAt / 3600) . " min";
+
+//		$prdtime = substr($prdtime, 9);
+//		$subPrd = time() -  strtotime($prdtime);
+//		$prdtime = floor($subPrd / 3600) . " min";
+		$prdtime = (int)((time()-strtotime($prdtime))/60) . " min";
+
 
 		switch ($rt) {
 			case 'G':
@@ -43,7 +51,7 @@ if ($staNm != null) {
 				break;
 		}
 
-		echo "<li class=\"columns six\"><div class='rt $rt'><h2><a href=\"./?display=$rt\">$rt</a> > $cta_station</h2></div>\n<div class='arrT'><h3>arrival time:</h3> $arrival_time</div>\n<div class='prdt'><h3>predicted time:</h3> $prdtime</div>\n<div class='stpDe'><h3>direction:</h3> $stopDirection</div>\n<hr /></li>\n";
+		echo "<li class=\"columns six\"><div class='rt $rt'><h2><a href=\"./?display=$rt\">$rt</a> > $cta_station</h2></div>\n<div class='arrT'><h3>arrival time:</h3> <strong>$arrival_time</strong></div>\n<div class='prdt'><h3>predicted time:</h3> <strong>$prdtime</strong></div>\n<div class='stpDe'><h3>direction:</h3> <strong>$stopDirection</strong></div>\n<hr /></li>\n";
 	}
 
 	echo "\n</ul></div>";

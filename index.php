@@ -24,6 +24,16 @@
 </head>
 <body>
 <div class="row">
+	<div class="twelve columns">
+		<div class="one columns">
+			<a href="index.php"><img src="./images/ico/apple-touch-icon-114-precomposed.png" alt="CTA" /></a>
+		</div>
+		<div class="eleven columns">
+			<?php echo '<div class="twelve columns"><h1>Pick a stop, get arrivals.</h1></div>'; ?>
+		</div>
+	</div>
+</div>
+<div class="row">
 		<div class="twelve columns">
 			<?php
 
@@ -194,7 +204,6 @@
 
 					default:
 					case '':
-						echo '<div class="twelve columns"><h1>Pick a stop, get arrivals.</h1></div>';
 						echo '<div class="six columns color Blue"><h2><a class="panel" href="?display=blue">Blue Line <span>O\'Hare-Forest Park</span></a></h2></div>';
 						echo '<div class="six columns color Brown"><h2><a class="panel" href="?display=brown">Brown Line <span>Kimball-Loop</span></a></h2></div>';
 						echo '<div class="six columns color Green"><h2><a class="panel" href="?display=green">Green Line <span>Harlem/Lake-Ashland/63rd-Cottage Grv</span></a></h2></div>';
