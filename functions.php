@@ -66,32 +66,110 @@ function secs_to_string_compact ($secs) {
 }
 
 
-/*
- * Convert seconds to human readable text.
- *
+/**
+ * Convert seconds to human readable format
+ * in Year, Month, Day, Hour, Minute and Second
+ * @param int $sec The second value
+ * @return array The human readable format in an associative array
  */
-function secs_to_h($secs)
-{
-        $units = array(
-                "week"   => 7*24*3600,
-                "day"    =>   24*3600,
-                "hour"   =>      3600,
-                "minute" =>        60,
-                "second" =>         1,
+function itg_sec_to_h($sec) {
+    //make the $sec unsigned
+    $sec = intval(abs($sec));
+    //initialize the return array
+    $ret = array(
+        'year'      => 0,
+        'month'     => 0,
+        'day'       => 0,
+        'hour'      => 0,
+        'minute'    => 0,
+        'second'    => 0,
+    );
+
+    //check if given second is zero
+    if(0 == $sec)
+        return $ret;
+
+    //initialize the unit array
+    $units = array(
+        'year'      => 365*24*60*60,
+        'month'     => 30*24*60*60,
+        'day'       => 24*60*60,
+        'hour'      => 60*60,
+        'minute'    => 60,
+        'second'    => 1,
+    );
+
+    //calculate the year, month, day, hour, minute, second
+    foreach($units as $unit => $val) {
+        $value = floor($sec/$val);
+        $ret[$unit] = $value;
+        $sec -= $value*$val;
+    }
+
+    return $ret;
+}
+
+/**
+ * Calculate the difference between two dates
+ * Prefers the PHP 5.3 DateTime OOP
+ * If PHP version is less than 5.3 it uses procedural method instead
+ * @param string $date_one The first date in H:i:s Y-m-d format
+ * @param string $date_two The second date in H:i:s Y-m-d format
+ * @return array the array containing year, month, day, hour, minute and second information. Access it like $arr['year'] etc.
+ */
+function itg_cal_difference_date($date_one, $date_two) {
+    if(version_compare('5.3', phpversion(), '<=')) {
+        $d_one = new DateTime($date_one);
+        $d_two = new DateTime($date_two);
+        $d_diff = $d_one->diff($d_two);
+        return array(
+            'year' => $d_diff->y,
+            'month' => $d_diff->m,
+            'day' => $d_diff->d,
+            'hour' => $d_diff->h,
+            'minute' => $d_diff->i,
+            'second' => $d_diff->s,
+        );
+    } else {
+        $d_one = strtotime($date_one);
+        $d_two = strtotime($date_two);
+
+        $sec = $d_one - $d_two;
+
+        //make the $sec unsigned
+        $sec = intval(abs($sec));
+        //initialize the return array
+        $ret = array(
+            'year'      => 0,
+            'month'     => 0,
+            'day'       => 0,
+            'hour'      => 0,
+            'minute'    => 0,
+            'second'    => 0,
         );
 
-  // specifically handle zero
-        if ( $secs == 0 ) return "0 seconds";
+        //check if given second is zero
+        if(0 == $sec)
+            return $ret;
 
-        $s = "";
+        //initialize the unit array
+        $units = array(
+            'year'      => 365*24*60*60,
+            'month'     => 30*24*60*60,
+            'day'       => 24*60*60,
+            'hour'      => 60*60,
+            'minute'    => 60,
+            'second'    => 1,
+        );
 
-        foreach ( $units as $name => $divisor ) {
-                if ( $quot = intval($secs / $divisor) ) {
-                        $s .= "$quot $name";
-                        $s .= (abs($quot) > 1 ? "s" : "") . ", ";
-                        $secs -= $quot * $divisor;
-                }
+        //calculate the year, month, day, hour, minute, second
+        foreach($units as $unit => $val) {
+            $value = floor($sec/$val);
+            $ret[$unit] = $value;
+            $sec -= $value*$val;
         }
 
-        return substr($s, 0, -2);
+        return $ret;
+
+    }
 }

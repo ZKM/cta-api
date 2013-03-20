@@ -28,6 +28,7 @@ if ($staNm != null) {
 
  	$arrival_time = secs_to_h(strtotime($arrival_time) - strtotime(now));
 */
+ 	// PHP Version 5.2.17
 	// Creating Predicted Time
 	$prdDateArray = explode(" ",$prdtime);
 	$dateArray = str_split($prdDateArray[0]);
@@ -35,10 +36,22 @@ if ($staNm != null) {
 	$month = $dateArray[4].$dateArray[5];
 	$day = $dateArray[6].$dateArray[7];
 
-	$prdtime = $year.'-'.$month.'-'.$day.' '.$prdDateArray[1];
+	$prdtimeB = $year.'-'.$month.'-'.$day.' '.$prdDateArray[1];
+ 	$prdtimeC = secs_to_string_compact(strtotime($prdtime) - strtotime(now));
 
- 	$prdtime = secs_to_string_compact(strtotime($prdtime) - strtotime(now));
+ 	$timeNow = date('Ymd H:i:s');
 
+	//get the difference in second
+	$dif = abs(strtotime($prdtime) - strtotime($timeNow));
+
+	//get the difference in human readable for PHP version < 5.3
+	$h_dif = itg_sec_to_h($dif);
+
+		// Echo Result
+		foreach($h_dif as $key => $val) {
+		    print_r($val);
+		    echo " " . $key . " ";
+		}
 
 		switch ($rt) {
 			case 'G':
