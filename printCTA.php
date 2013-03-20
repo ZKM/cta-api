@@ -14,15 +14,29 @@ if ($staNm != null) {
 		$stopDirection = $cta_info->stpDe;
 		$prdtime = $cta_info->prdt;
 		
-//		$arrival_time = substr($arrival_time, 9);
-		$arrival_time = (int)((time()-strtotime($arrival_time))/60) . " min";
-//		$subAt = time() -  strtotime($prdtime);
-//		$arrival_time = floor($subAt / 3600) . " min";
+	//$arrival_time = (int)((time()-strtotime($arrival_time))/60) . " min";
 
-//		$prdtime = substr($prdtime, 9);
-//		$subPrd = time() -  strtotime($prdtime);
-//		$prdtime = floor($subPrd / 3600) . " min";
-		$prdtime = (int)((time()-strtotime($prdtime))/60) . " min";
+	// Creating Arrival Time
+	$arvDateArray = explode(" ",$arrival_time);
+	$dateArray = str_split($arvDateArray[0]);
+	$year = $dateArray[0].$dateArray[1].$dateArray[2].$dateArray[3];
+	$month = $dateArray[4].$dateArray[5];
+	$day = $dateArray[6].$dateArray[7];
+
+	$arrival_time = $year.'-'.$month.'-'.$day.' '.$prdDateArray[1];
+
+ 	$arrival_time = secs_to_string_compact(strtotime($arrival_time) - strtotime(now));
+
+	// Creating Predicted Time
+	$prdDateArray = explode(" ",$prdtime);
+	$dateArray = str_split($prdDateArray[0]);
+	$year = $dateArray[0].$dateArray[1].$dateArray[2].$dateArray[3];
+	$month = $dateArray[4].$dateArray[5];
+	$day = $dateArray[6].$dateArray[7];
+
+	$prdtime = $year.'-'.$month.'-'.$day.' '.$prdDateArray[1];
+
+ 	$prdtime = secs_to_string_compact(strtotime($prdtime) - strtotime(now));
 
 
 		switch ($rt) {

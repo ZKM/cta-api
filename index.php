@@ -1,3 +1,6 @@
+<?php
+	include('con.php');
+?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
@@ -43,8 +46,7 @@
 				switch($action) {
 					case 'BLUE': 
 					$lineColor = "Blue";
-					// Query Database
-					include('con.php');
+ 					// Query Database
 					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
 					$paths = @mysql_query($query); 
 
@@ -64,7 +66,6 @@
 					case 'BROWN': 
 					$lineColor = "Brown";
 					// Query Database
-					include('con.php');
 					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
 					$paths = @mysql_query($query); 
 
@@ -84,7 +85,6 @@
 					case 'GREEN': 
 					$lineColor = "Green";
 					// Query Database
-					include('con.php');
 					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
 					$paths = @mysql_query($query); 
 
@@ -104,7 +104,6 @@
 					case 'ORANGE': 
 					$lineColor = "Orange";
 					// Query Database
-					include('con.php');
 					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
 					$paths = @mysql_query($query); 
 
@@ -124,7 +123,6 @@
 					case 'PINK': 
 					$lineColor = "Pink";
 					// Query Database
-					include('con.php');
 					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
 					$paths = @mysql_query($query); 
 
@@ -144,7 +142,6 @@
 					case 'PURPLE': 
 					$lineColor = "Purple";
 					// Query Database
-					include('con.php');
 					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
 					$paths = @mysql_query($query); 
 
@@ -164,7 +161,6 @@
 					case 'RED': 
 					$lineColor = "Red";
 					// Query Database
-					include('con.php');
 					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
 					$paths = @mysql_query($query); 
 
@@ -184,7 +180,6 @@
 					case 'YELLOW': 
 					$lineColor = "Yellow";
 					// Query Database
-					include('con.php');
 					$query = "SELECT  `sid` ,  `station` FROM  `" . strtolower($lineColor) . "`";
 					$paths = @mysql_query($query); 
 
