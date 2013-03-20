@@ -17,6 +17,7 @@ if ($staNm != null) {
 	//$arrival_time = (int)((time()-strtotime($arrival_time))/60) . " min";
 
 	// Creating Arrival Time
+/*
 	$arvDateArray = explode(" ",$arrival_time);
 	$dateArray = str_split($arvDateArray[0]);
 	$year = $dateArray[0].$dateArray[1].$dateArray[2].$dateArray[3];
@@ -25,8 +26,8 @@ if ($staNm != null) {
 
 	$arrival_time = $year.'-'.$month.'-'.$day.' '.$prdDateArray[1];
 
- 	$arrival_time = secs_to_string_compact(strtotime($arrival_time) - strtotime(now));
-
+ 	$arrival_time = secs_to_h(strtotime($arrival_time) - strtotime(now));
+*/
 	// Creating Predicted Time
 	$prdDateArray = explode(" ",$prdtime);
 	$dateArray = str_split($prdDateArray[0]);
@@ -65,7 +66,7 @@ if ($staNm != null) {
 				break;
 		}
 
-		echo "<li class=\"columns six\"><div class='rt $rt'><h2><a href=\"./?display=$rt\">$rt</a> > $cta_station</h2></div>\n<div class='arrT'><h3>arrival time:</h3> <strong>$arrival_time</strong></div>\n<div class='prdt'><h3>predicted time:</h3> <strong>$prdtime</strong></div>\n<div class='stpDe'><h3>direction:</h3> <strong>$stopDirection</strong></div>\n<hr /></li>\n";
+		echo "<li class=\"columns six\"><div class='rt $rt'><h2><a href=\"./?display=$rt\">$rt</a> > $cta_station</h2></div>\n<div class='prdt'><h3>predicted time:</h3> <strong>$prdtime</strong></div>\n<div class='stpDe'><h3>direction:</h3> <strong>$stopDirection</strong></div>\n<hr /></li>\n";
 	}
 
 	echo "\n</ul></div>";

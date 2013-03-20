@@ -8,6 +8,8 @@
 	<meta charset="utf-8" />
 	<title>CTA APP</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="refresh" content="30" />
+
 	<meta property="og:url" content="http://cta.zachschneider.com/">
 	<meta property="og:title" content="CTA APP">
 	<meta property="og:type" content="website"/>
